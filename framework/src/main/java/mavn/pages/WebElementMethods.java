@@ -1,7 +1,6 @@
-package com.tests;
+package mavn.pages;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -11,12 +10,12 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.relevantcodes.extentreports.LogStatus;
+import com.tests.CommonToTests;
 
-public class webElementMethods extends CommonToTests{
+public class WebElementMethods extends CommonToTests{
 
 	
 	//Click Element
-	
 	public void clickELement(By locator, String ReportingStep) {
 		try {
 			driver.findElement(locator).click();
@@ -27,7 +26,6 @@ public class webElementMethods extends CommonToTests{
 			Assert.fail();
 			//Reporter.log(ee.getMessage());
 			test.log(LogStatus.FAIL, "Test Failed",test.addScreenCapture(screenshot()));
-			
 			driver.quit();
 		}
 

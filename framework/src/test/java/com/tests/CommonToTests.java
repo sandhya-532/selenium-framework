@@ -53,7 +53,7 @@ public class CommonToTests {
 		//Step2: Browser creation
 		try{
 			if(sBrowser.equalsIgnoreCase("chrome")){
-				System.setProperty("webdriver.chrome.driver","C:\\Users\\BAK\\Documents\\Raja\\SeleniumLearning\\framework\\Drivers\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 				test.log(LogStatus.PASS, "chrome Browser initiated");
