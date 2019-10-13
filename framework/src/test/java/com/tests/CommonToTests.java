@@ -22,10 +22,11 @@ public class CommonToTests {
 
 	public static String sURL = "";
 	public static String sBrowser = "";
-	public static String search="";
+	public  Long driver_Timeout;
 	public static WebDriver driver;
 	public static ExtentTest test;
 	public static ExtentReports report;
+	public static WebDriver wait;
 
 	@BeforeSuite
 	public void beforeSuiteActivities () {
@@ -38,7 +39,7 @@ public class CommonToTests {
 
 			sURL = globalDataProperties.getProperty("URL");
 			sBrowser = globalDataProperties.getProperty("Browser");
-			search =globalDataProperties.getProperty("search_text");
+			driver_Timeout =Long.parseLong(globalDataProperties.getProperty("Timeout"));
 		} catch (Exception ee) {
 			System.out.println("Properties file reading failed.");
 		}
@@ -46,6 +47,13 @@ public class CommonToTests {
 
 
 	}
+	
+	@BeforeTest
+	public void beforeTest(){
+		report = new ExtentReports(System.getProperty("user.dir")+"\\ExtentReportResults.html");
+		test = report.startTest("Extentreport");
+	}
+
 
 
 	@BeforeMethod
@@ -63,18 +71,10 @@ public class CommonToTests {
 		}catch(Exception e){
 			System.out.println(e);
 		}
-
-
-
 	}
-	@BeforeTest
-	public void beforeTest(){
-
-		report = new ExtentReports(System.getProperty("user.dir")+"\\ExtentReportResults.html");
-		test = report.startTest("Extentreport");
-
-	}
-
+	
+	
+	
 
 	@AfterTest
 	public void endTest()

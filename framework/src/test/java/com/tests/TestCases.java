@@ -20,16 +20,7 @@ public class TestCases extends CommonToTests{
 		objManHmPage.searchAndClickDepen();
 	}
 	
-	//@Test
-	public void login(){
-		//Check driver is null.
-		try {
-			WM.clickELement(By.linkText("Menu"), "Menu Link ");
-			WM.screenshot();
-			driver.quit();
-		} catch (Exception e) {
-		}
-	}
+	
 	
 	//@Test
 	public void login1(){
